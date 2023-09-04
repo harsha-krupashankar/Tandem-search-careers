@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="index_styles.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container text-container">
+            <h2 class="heading-text">Latest Requisitions Across The Globe</h2>
+            <p class="sub-heading-text">
+                All the latest jobs in Strategy, Management Consulting, Digital and Technology. Our clients range from
+                some of the most renowned consulting firms in the world, to blue chip corporates and tier one financial
+                institutions
+            </p>
+        </div>
+    </header>
+    <main>
+        <section class="filters">
+            <div class="container filter-container">
+                <div class="search-container">
+                    <input type="email" class="form-control search-input" id="searchInput" placeholder="Search jobs">
+                </div>
+                <div class="dropdown-container country">
+                    <div class="dropdown">
+                        <button class="button button-dropdown dropdown-toggle" type="button" id="countryDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Choose a Country
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="countryDropdown">
+                            <li data-tooltip="Argentina"><a class="dropdown-item" href="#">Argentina</a></li>
+                            <li data-tooltip="Australia"><a class="dropdown-item" href="#">Australia</a></li>
+                            <li data-tooltip="Bangladesh"><a class="dropdown-item" href="#">Bangladesh</a></li>
+                            <li data-tooltip="Bhutan"><a class="dropdown-item" href="#">Bhutan</a></li>
+                            <li data-tooltip="Brazil"><a class="dropdown-item" href="#">Brazil</a></li>
+                            <li data-tooltip="Canada"><a class="dropdown-item" href="#">Canada</a></li>
+                            <li data-tooltip="China"><a class="dropdown-item" href="#">China</a></li>
+                            <li data-tooltip="Egypt"><a class="dropdown-item" href="#">Egypt</a></li>
+                            <li data-tooltip="France"><a class="dropdown-item" href="#">France</a></li>
+                            <li data-tooltip="Germany"><a class="dropdown-item" href="#">Germany</a></li>
+                            <li data-tooltip="Greece"><a class="dropdown-item" href="#">Greece</a></li>
+                            <li data-tooltip="India"><a class="dropdown-item" href="#">India</a></li>
+                            <li data-tooltip="Indonesia"><a class="dropdown-item" href="#">Indonesia</a></li>
+                            <li data-tooltip="Italy"><a class="dropdown-item" href="#">Italy</a></li>
+                            <li data-tooltip="Japan"><a class="dropdown-item" href="#">Japan</a></li>
+                            <li data-tooltip="Kenya"><a class="dropdown-item" href="#">Kenya</a></li>
+                            <li data-tooltip="Malaysia"><a class="dropdown-item" href="#">Malaysia</a></li>
+                            <li data-tooltip="Mexico"><a class="dropdown-item" href="#">Mexico</a></li>
+                            <li data-tooltip="Nepal"><a class="dropdown-item" href="#">Nepal</a></li>
+                            <li data-tooltip="Nigeria"><a class="dropdown-item" href="#">Nigeria</a></li>
+                            <li data-tooltip="Pakistan"><a class="dropdown-item" href="#">Pakistan</a></li>
+                            <li data-tooltip="Russia"><a class="dropdown-item" href="#">Russia</a></li>
+                            <li data-tooltip="Saudi Arabia"><a class="dropdown-item" href="#">Saudi Arabia</a></li>
+                            <li data-tooltip="Singapore"><a class="dropdown-item" href="#">Singapore</a></li>
+                            <li data-tooltip="South Africa"><a class="dropdown-item" href="#">South Africa</a></li>
+                            <li data-tooltip="South Korea"><a class="dropdown-item" href="#">South Korea</a></li>
+                            <li data-tooltip="Spain"><a class="dropdown-item" href="#">Spain</a></li>
+                            <li data-tooltip="Sri Lanka"><a class="dropdown-item" href="#">Sri Lanka</a></li>
+                            <li data-tooltip="Thailand"><a class="dropdown-item" href="#">Thailand</a></li>
+                            <li data-tooltip="Turkey"><a class="dropdown-item" href="#">Turkey</a></li>
+                            <li data-tooltip="United Arab Emirates"><a class="dropdown-item" href="#">United Arab Emirates</a></li>
+                            <li data-tooltip="United Kingdom"><a class="dropdown-item" href="#">United Kingdom</a></li>
+                            <li data-tooltip="United States"><a class="dropdown-item" href="#">United States</a></li>
+                            <li data-tooltip="Vietnam"><a class="dropdown-item" href="#">Vietnam</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown-container department">
+                    <div class="dropdown">
+                        <button class="button button-dropdown dropdown-toggle" type="button" id="departmentDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Choose a Department
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="departmentDropdown">
+                            <li data-tooltip="Banking and Finance"><a class="dropdown-item" href="#">Banking and Finance</a></li>
+                            <li data-tooltip="Construction and Engineering"><a class="dropdown-item" href="#">Construction and Engineering</a></li>
+                            <li data-tooltip="Consulting"><a class="dropdown-item" href="#">Consulting</a></li>
+                            <li data-tooltip="E-Commerce"><a class="dropdown-item" href="#">E-Commerce</a></li>
+                            <li data-tooltip="Financial Services"><a class="dropdown-item" href="#">Financial Services</a></li>
+                            <li data-tooltip="Insurance"><a class="dropdown-item" href="#">Insurance</a></li>
+                            <li data-tooltip="IT and Telco"><a class="dropdown-item" href="#">IT and Telco</a></li>
+                            <li data-tooltip="Legal"><a class="dropdown-item" href="#">Legal</a></li>
+                            <li data-tooltip="Private Equity"><a class="dropdown-item" href="#">Private Equity</a></li>
+                            <li data-tooltip="Digital"><a class="dropdown-item" href="#">Digital</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown-container contract">
+                    <div class="dropdown">
+                        <button class="button button-dropdown dropdown-toggle" type="button" id="contractDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Choose a Contract
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="contractDropdown">
+                            <li data-tooltip="Permanent"><a class="dropdown-item" href="#">Permanent</a></li>
+                            <li data-tooltip="Contract to Perm"><a class="dropdown-item" href="#">Contract to Perm</a></li>
+                            <li data-tooltip="0-3 Month Contract"><a class="dropdown-item" href="#">0-3 Month Contract</a></li>
+                            <li data-tooltip="3-6 Month Contract"><a class="dropdown-item" href="#">3-6 Month Contract</a></li>
+                            <li data-tooltip="6-9 Month Contract"><a class="dropdown-item" href="#">6-9 Month Contract</a></li>
+                            <li data-tooltip="9+ Month Contract"><a class="dropdown-item" href="#">9+ Month Contract</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="search-button-container">
+                    <button class="button button-search">Search</button>
+                </div>
+            </div>
+        </section>
+        <section class="job-listings">
+            <div class="cards-container container">
+                <div class="job-card">
+                    <div class="job-name-dept">
+                        <h4 class="job-name">Partner - Energy Transition, Mining & Metals</h4>
+                        <p class="department-name">Consulting</p>
+                    </div>
+                    <div class="country-info">
+                        <i class="ph ph-map-pin"></i>
+                        <p class="country-name mb-0">USA</p>
+                    </div>
+                    <div class="job-type-info">
+                        <i class="ph ph-identification-card"></i>
+                        <p class="job-type mb-0">Permanent</p>
+                    </div>
+                    <div class="date-posted-info">
+                        <i class="ph ph-calendar"></i>
+                        <p class="date-posted mb-0">06/07/2023</p>
+                    </div>
+                    <div class="job-owner-info">
+                        <img class="owner-image"
+                            src="https://c.na171.content.force.com/servlet/servlet.ImageServer?id=0156f00003Y5htC&oid=00DA0000000HAu6&lastMod=1613556147000"
+                            alt="job owner">
+                    </div>
+                    
+                </div>
+                <div class="job-card">
+                    <div class="job-name-dept">
+                        <h4 class="job-name">Manager - Commercial Due Diligence</h4>
+                        <p class="department-name">Consulting</p>
+                    </div>
+                    <div class="country-info">
+                        <i class="ph ph-map-pin"></i>
+                        <p class="country-name mb-0">UK</p>
+                    </div>
+                    <div class="job-type-info">
+                        <i class="ph ph-identification-card"></i>
+                        <p class="job-type mb-0">Permanent</p>
+                    </div>
+                    <div class="date-posted-info">
+                        <i class="ph ph-calendar"></i>
+                        <p class="date-posted mb-0">06/07/2023</p>
+                    </div>
+                    <div class="job-owner-info">
+                        <img class="owner-image"
+                            src="https://da0000000hau6mag--c.documentforce.com/servlet/servlet.ImageServer?id=0156f00003YGfGD&oid=00DA0000000HAu6&lastMod=1664179414000"
+                            alt="job owner">
+                    </div>
+                    
+                </div>
+                <div class="job-card">
+                    <div class="job-name-dept">
+                        <h4 class="job-name">Senior Manager - Public sector, balanced scorecards</h4>
+                        <p class="department-name">Consulting</p>
+                    </div>
+                    <div class="country-info">
+                        <i class="ph ph-map-pin"></i>
+                        <p class="country-name mb-0">Saudi Arabia</p>
+                    </div>
+                    <div class="job-type-info">
+                        <i class="ph ph-identification-card"></i>
+                        <p class="job-type mb-0">Permanent</p>
+                    </div>
+                    <div class="date-posted-info">
+                        <i class="ph ph-calendar"></i>
+                        <p class="date-posted mb-0">06/07/2023</p>
+                    </div>
+                    <div class="job-owner-info">
+                        <img class="owner-image"
+                            src="https://da0000000hau6mag--c.documentforce.com/servlet/servlet.ImageServer?id=0156f00003YGfGD&oid=00DA0000000HAu6&lastMod=1664179414000"
+                            alt="job owner">
+                    </div>
+                    
+                </div>
+                <div class="job-card">
+                    <div class="job-name-dept">
+                        <h4 class="job-name">Senior Manager/Director - Generalist</h4>
+                        <p class="department-name">Consulting</p>
+                    </div>
+                    <div class="country-info">
+                        <i class="ph ph-map-pin"></i>
+                        <p class="country-name mb-0">Multiple Countries</p>
+                    </div>
+                    <div class="job-type-info">
+                        <i class="ph ph-identification-card"></i>
+                        <p class="job-type mb-0">Permanent</p>
+                    </div>
+                    <div class="date-posted-info">
+                        <i class="ph ph-calendar"></i>
+                        <p class="date-posted mb-0">06/07/2023</p>
+                    </div>
+                    <div class="job-owner-info">
+                        <img class="owner-image"
+                            src="https://c.na171.content.force.com/servlet/servlet.ImageServer?id=0156f00003Y5hsd&oid=00DA0000000HAu6&lastMod=1613555733000"
+                            alt="job owner">
+                    </div>
+                    
+                </div>
+                <div class="job-card">
+                    <div class="job-name-dept">
+                        <h4 class="job-name">Manager - Generalist</h4>
+                        <p class="department-name">Consulting</p>
+                    </div>
+                    <div class="country-info">
+                        <i class="ph ph-map-pin"></i>
+                        <p class="country-name mb-0">Indonesia</p>
+                    </div>
+                    <div class="job-type-info">
+                        <i class="ph ph-identification-card"></i>
+                        <p class="job-type mb-0">Permanent</p>
+                    </div>
+                    <div class="date-posted-info">
+                        <i class="ph ph-calendar"></i>
+                        <p class="date-posted mb-0">06/07/2023</p>
+                    </div>
+                    <div class="job-owner-info">
+                        <img class="owner-image"
+                            src="https://c.na171.content.force.com/servlet/servlet.ImageServer?id=0156f00003Y5hsd&oid=00DA0000000HAu6&lastMod=1613555733000"
+                            alt="job owner">
+                    </div>
+                    
+                </div>
+                <div class="job-card">
+                    <div class="job-name-dept">
+                        <h4 class="job-name">Specialist Consultant - Large Scale Capital Projects</h4>
+                        <p class="department-name">Consulting</p>
+                    </div>
+                    <div class="country-info">
+                        <i class="ph ph-map-pin"></i>
+                        <p class="country-name mb-0">UAE</p>
+                    </div>
+                    <div class="job-type-info">
+                        <i class="ph ph-identification-card"></i>
+                        <p class="job-type mb-0">Permanent</p>
+                    </div>
+                    <div class="date-posted-info">
+                        <i class="ph ph-calendar"></i>
+                        <p class="date-posted mb-0">06/07/2023</p>
+                    </div>
+                    <div class="job-owner-info">
+                        <img class="owner-image"
+                            src="https://da0000000hau6mag.file.force.com/servlet/servlet.ImageServer?id=0156f00003YVMGJ&oid=00DA0000000HAu6&lastMod=1688630843000"
+                            alt="job owner">
+                    </div>
+                    
+                </div>
+                <div class="job-card">
+                    <div class="job-name-dept">
+                        <h4 class="job-name">Manager/Senior Manager - Digital</h4>
+                        <p class="department-name">Consulting</p>
+                    </div>
+                    <div class="country-info">
+                        <i class="ph ph-map-pin"></i>
+                        <p class="country-name mb-0">United Arab Emirates</p>
+                    </div>
+                    <div class="job-type-info">
+                        <i class="ph ph-identification-card"></i>
+                        <p class="job-type mb-0">Permanent</p>
+                    </div>
+                    <div class="date-posted-info">
+                        <i class="ph ph-calendar"></i>
+                        <p class="date-posted mb-0">06/07/2023</p>
+                    </div>
+                    <div class="job-owner-info">
+                        <img class="owner-image"
+                            src="https://c.na171.content.force.com/servlet/servlet.ImageServer?id=0156f00003Y5hqS&oid=00DA0000000HAu6&lastMod=1613553494000"
+                            alt="job owner">
+                    </div>
+                </div>
+                <div class="job-card">
+                    <div class="job-name-dept">
+                        <h4 class="job-name">ESG Partner - Strategy Consulting</h4>
+                        <p class="department-name">Consulting</p>
+                    </div>
+                    <div class="country-info">
+                        <i class="ph ph-map-pin"></i>
+                        <p class="country-name mb-0">United Arab Emirates</p>
+                    </div>
+                    <div class="job-type-info">
+                        <i class="ph ph-identification-card"></i>
+                        <p class="job-type mb-0">Permanent</p>
+                    </div>
+                    <div class="date-posted-info">
+                        <i class="ph ph-calendar"></i>
+                        <p class="date-posted mb-0">06/07/2023</p>
+                    </div>
+                    <div class="job-owner-info">
+                        <img class="owner-image"
+                            src="https://c.na171.content.force.com/servlet/servlet.ImageServer?id=0156f00003Y5hr6&oid=00DA0000000HAu6&lastMod=1613554278000"
+                            alt="job owner">
+                    </div>
+                </div>
+                <div class="job-card">
+                    <div class="job-name-dept">
+                        <h4 class="job-name">Partner - Aviation, Transport & Capital Infrastructure</h4>
+                        <p class="department-name">Consulting</p>
+                    </div>
+                    <div class="country-info">
+                        <i class="ph ph-map-pin"></i>
+                        <p class="country-name mb-0">UAE</p>
+                    </div>
+                    <div class="job-type-info">
+                        <i class="ph ph-identification-card"></i>
+                        <p class="job-type mb-0">Permanent</p>
+                    </div>
+                    <div class="date-posted-info">
+                        <i class="ph ph-calendar"></i>
+                        <p class="date-posted mb-0">06/07/2023</p>
+                    </div>
+                    <div class="job-owner-info">
+                        <img class="owner-image"
+                            src="https://c.na171.content.force.com/servlet/servlet.ImageServer?id=0156f00003Y5hs4&oid=00DA0000000HAu6&lastMod=1619072961000"
+                            alt="job owner">
+                    </div>
+                </div>
+                <div class="job-card">
+                    <div class="job-name-dept">
+                        <h4 class="job-name">Manager - TMT - Diverse Candidate Preferred</h4>
+                        <p class="department-name">Consulting</p>
+                    </div>
+                    <div class="country-info">
+                        <i class="ph ph-map-pin"></i>
+                        <p class="country-name mb-0">Australia</p>
+                    </div>
+                    <div class="job-type-info">
+                        <i class="ph ph-identification-card"></i>
+                        <p class="job-type mb-0">Permanent</p>
+                    </div>
+                    <div class="date-posted-info">
+                        <i class="ph ph-calendar"></i>
+                        <p class="date-posted mb-0">06/07/2023</p>
+                    </div>
+                    <div class="job-owner-info">
+                        <img class="owner-image"
+                            src="https://c.na171.content.force.com/servlet/servlet.ImageServer?id=0156f00003Y5hsd&oid=00DA0000000HAu6&lastMod=1613555733000"
+                            alt="job owner">
+                    </div>
+                </div>
+                <div class="view-more-btn-container text-center">
+                    <button class="button button-view-more">View more Jobs</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <script src="index_main.js"></script>
+</body>
+
+</html>
