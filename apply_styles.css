@@ -1,0 +1,386 @@
+:root {
+    --color-primary: #101545;
+    --color-secondary: #6887d9;
+    --color-tertiary: #6ec1e4;
+    --color-white: #f1f1f1;
+    --color-white-dark: #e9e9e9;
+    --color-white-light: #cacaca;
+    --color-grey-light: #dee2e6;
+    --color-grey-dark: #868e96;
+    --color-black-light: #495057;
+
+    --bg-primary: #101545;
+    --bg-secondary: #6887d9;
+    --bg-tertiary: #6ec1e4;
+    --bg-grey-light: #dee2e6;
+    --bg-grey-dark: #868e96;
+    --bg-black-light: #495057;
+    --bg-white: #f1f1f1;
+    --bg-white-dark: #e9e9e9;
+    --bg-white-light: #cacaca;
+
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'DM Sans', sans-serif;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--color-primary);
+}
+
+.header {
+    height: auto;
+    padding: 6rem 0 2rem 0;
+    /* background-color: var(--bg-primary); */
+    background-image: url(img/apply_bg.png);
+    background-size: cover;
+}
+
+main {
+    display: flex;
+    gap: 4rem;
+}
+
+.job-info {
+    padding: 3rem;
+}
+
+.job-name {
+    font-size: 3.4rem;
+    font-weight: 600;
+    max-width: 80rem;
+    word-wrap: break-word;
+    line-height: 5rem;
+    color: var(--color-white);
+}
+
+.owner-img {
+    width: 20rem;
+    height: auto;
+    border-radius: 50%;
+    margin: 2rem 0;
+}
+
+.department-name {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    line-height: 4rem;
+}
+
+.other-info {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0 3rem 0;
+}
+
+.other-info div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.4rem;
+    color: var(--color-white-light);
+}
+
+.other-info div p {
+    font-weight: 400;
+}
+
+.other-info div .ph {
+    font-weight: 600;
+}
+
+.job-description {
+    font-size: 1.4rem;
+    font-size: 400;
+    width: 90%;
+}
+
+.job-owner-info {
+    flex: 70%;
+}
+
+.owner-info-card {
+    background-color: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 5px;
+    padding: 4rem 6rem;
+    transform: translateY(-100px);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    min-height: 35rem;
+    margin-top: 2rem;
+}
+
+.intro-line {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 0;
+}
+
+.job-owner-name {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 2rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icons .fa {
+    font-size: 3rem;
+    color: var(--color-primary);
+}
+
+.social-icons .fa:hover {
+    color: #101545c1;
+}
+
+.social-icons a {
+    transition: all .4s ease-in-out;
+}
+
+.social-icons a:active {
+    transform: translateY(10px);
+}
+
+.button {
+    padding: 1rem 1.4rem;
+    border-radius: 3px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    transition: all .4s ease;
+}
+
+.button:active {
+    transform: translateY(5px);
+}
+
+.button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25);
+    outline: none;      
+}
+
+.button-apply {
+    width: 20rem;
+    background-color: var(--bg-white);
+    color: var(--color-primary);
+    border: 1px solid var(--color-white);
+}
+
+.button-apply:hover  {
+    background-color: var(--bg-secondary);
+    border: 1px solid #6887d9;
+    color: var(--color-white);
+}
+
+.button-back {
+    font-size: 1.2rem;
+    border: 1px solid var(--bg-white-dark);
+    color: var(--color-white-dark);
+    background-color: transparent;
+    width: 10rem;
+}
+
+.button-back:hover {
+    border: 1px solid var(--color-grey-dark);
+    background-color: var(--bg-grey-dark);
+    color: var(--color-white);
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1.4rem;
+    margin: 2rem 0 4rem 0;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 3rem 5rem;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    animation: fade-in 0.5s ease;
+    width: 75rem;
+    height: auto;
+    max-height: 120rem;
+    z-index: 2;
+}
+
+.popup-content {
+    text-align: left;
+}
+
+.backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.popup-heading {
+    font-size: 2.2rem;
+    /* text-align: center; */
+    margin-bottom: 1rem;
+}
+
+.popup-job-name {
+    margin: 0 0 3.6rem 0;
+    font-size: 1.4rem;
+    color: var(--color-secondary);
+}
+
+.form-control {
+    height: 3rem ;
+    width: 100%;
+    font-size: 1.4rem;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 2REM;
+}
+
+.form label {
+    margin-bottom: .7rem;
+    margin-left: .3rem;
+}
+
+.form div div {
+    width: 100%;
+}
+
+.button-submit {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--color-primary);
+    color: var(--color-white);
+    width: 20rem;
+}
+
+.button-submit:hover {
+    background-color: transparent; 
+    color: var(--color-primary);
+}
+
+.large-text {
+    height:8rem;
+}
+
+.resume-input {
+    font-size: 1rem !important;
+    line-height: 2rem !important;
+}
+
+.header-container {
+    height: 100%;
+    padding: 0 4rem;
+}
+
+.input::placeholder {
+    font-size: 1rem;
+}
+
+
+/* Animations for other sections */
+.job-name, .department-name, .other-info div, .job-owner-info {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Updated Job Description Style */
+.job-description {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.animate-job-name .job-name,
+.animate-department-name .department-name,
+.animate-other-info .other-info div,
+.animate-job-owner-info .job-owner-info,
+.animate-job-description .job-description {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.button-apply, .button-back {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .7s ease, transform .7s ease, background-color .4s ease, color .4s ease, border-color .4s ease;
+}
+
+.animate-button-apply .button-apply,
+.animate-button-back .button-back {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.loader-container {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 1); /* Semi-transparent white */
+    z-index: 9999; /* Ensure loader is on top of all other content */
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 8px solid #101545;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

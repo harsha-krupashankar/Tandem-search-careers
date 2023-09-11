@@ -10,13 +10,10 @@ const triggerCardAnimation = () => {
         }
     });
 }
-triggerCardAnimation();
 
 document.addEventListener("scroll", triggerCardAnimation);
-// document.addEventListener("load", triggerCardAnimation);
 
-
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     var ul = document.querySelector('.scrollable-list');
     
     function checkScroll() {
@@ -30,6 +27,34 @@ document.addEventListener('DOMContentLoaded', function() {
     ul.addEventListener('scroll', checkScroll);
     checkScroll(); // Initial check
 });
+
+const showLoader = () => {
+    document.getElementById('loaderContainer').style.display = 'flex';
+}
+
+const hideLoader = () => {
+    document.getElementById('loaderContainer').style.display = 'none';
+    document.body.classList.add('animate-header');
+    setTimeout(function() {
+        document.body.classList.add('animate-filters');
+        setTimeout(() => {
+            triggerCardAnimation();
+        }, 1000);
+    }, 1600);
+    
+}
+
+showLoader();
+
+setTimeout(() => {
+    hideLoader()
+}, 2000);
+
+
+
+
+
+
 
 
 
