@@ -8,6 +8,7 @@
     --color-grey-light: #dee2e6;
     --color-grey-dark: #868e96;
     --color-black-light: #495057;
+    --color-red: #b10000;
 
     --bg-primary: #101545;
     --bg-secondary: #6887d9;
@@ -42,7 +43,6 @@ body {
 .header {
     height: auto;
     padding: 6rem 0 2rem 0;
-    /* background-color: var(--bg-primary); */
     background-image: url(img/apply_bg.png);
     background-size: cover;
 }
@@ -283,6 +283,7 @@ main {
 .form label {
     margin-bottom: .7rem;
     margin-left: .3rem;
+    font-size: 1.2rem;
 }
 
 .form div div {
@@ -384,3 +385,148 @@ main {
         transform: rotate(360deg);
     }
 }
+
+.required {
+    color: var(--color-red);
+}
+
+.form-control {
+    font-size: 1.2rem !important;
+}
+
+.form-control::placeholder {
+    font-size: 1rem !important;
+}
+
+.spinner-border {
+    display: none;
+}
+
+.thankyou-content {
+    text-align: center;
+}
+
+.thankyou-img {
+    width: 45rem;
+    height: auto;
+    margin-bottom: 4rem;
+}
+
+.thankyou-heading {
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.thankyou-sub {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.thankyou-content {
+    display: none;
+    clip-path: inset(50% 0 50% 0); /* start as a horizontal line in the middle */
+    animation: reveal 1s forwards; /* animation to reveal the content */
+}
+
+@keyframes reveal {
+    to {
+        clip-path: inset(0 0 0 0); /* reveal the entire content */
+    }
+}
+
+.header {
+    overflow: hidden;
+    position: relative;
+}
+
+.header::before,
+.header::after {
+    content: '';
+    position: absolute;
+    background-color: white; /* Color of your header background */
+    width: 100%;
+    height: 50%;
+    z-index: 2;
+    transform-origin: center; /* Set the origin for the transform */
+    transition: transform 0.8s ease;
+    transform: translateY(0); 
+}
+
+.header::before {
+    top: 0;
+    transform: translateY(0); /* Starts in the center */
+}
+
+.header::after {
+    bottom: 0;
+    transform: translateY(0); /* Starts in the center */
+}
+
+.animate-header .header::before {
+    animation: slideUpOutward 0.8s ease forwards; /* Slide it upwards */
+}
+
+.animate-header .header::after {
+    animation: slideDownOutward 0.8s ease forwards; /* Slide it downwards */
+}
+
+@keyframes slideUpOutward {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100%); } /* Slide it up and out */
+}
+
+@keyframes slideDownOutward {
+    from { transform: translateY(0); }
+    to { transform: translateY(100%); } /* Slide it down and out */
+}
+
+.thankyou-back-button {
+    width: 20rem;
+    margin: 1rem 0;
+    border: 1px solid var(--color-secondary);
+    background-color: var(--bg-secondary);
+    color: var(--color-white);
+}
+
+.thankyou-back-button:hover {
+    background-color: transparent;
+    color: var(--color-secondary);
+}
+
+.job-closed {
+    text-align: center;
+    margin: 7rem;
+    display: none;
+    clip-path: inset(50% 0 50% 0); /* start as a horizontal line in the middle */
+    animation: reveal 1s forwards; /* animation to reveal the content */
+}
+
+.job-closed-img {
+    width: 40rem;
+    height: auto;
+}
+
+.job-closed h2 {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.job-closed p {
+    font-size: 1.4rem;
+    margin: 1.4rem 0 3.6rem 0;
+    color: var(--bg-grey-dark);
+}
+
+.open-jobs-button {
+    border: 1px solid var(--color-primary);
+    background-color: var(--bg-primary);
+    color: var(--color-white);
+    width: 20rem;
+}
+
+.open-jobs-button:hover {
+    background-color: transparent;
+    color: var(--color-primary);
+}
+
+
