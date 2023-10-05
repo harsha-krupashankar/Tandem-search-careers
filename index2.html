@@ -30,8 +30,8 @@
             </p>
         </div>
     </header>
-    <main class="container">
-        <section class="filters" id="filterSection">
+    <main>
+        <section class="filters">
             <div class="container filter-container">
                 <div class="search-container">
                     <input type="text" class="form-control search-input" id="searchInput" placeholder="Search jobs">
@@ -43,18 +43,7 @@
                             Choose a Country
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="countryDropdown" id="countryDropdownValues">
-                            <!-- <li id="0"><span class="dropdown-item reset"><strong>Reset Selection</strong></span></li> -->
-                        </ul>
-                    </div>
-                </div>
-                <div class="dropdown-container contract">
-                    <div class="dropdown">
-                        <button class="button button-dropdown dropdown-toggle" type="button" id="cityDropdown"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Choose a City
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="cityDropdown" id="cityDropdownValues">
-                            <!-- <li id="0"><span class="dropdown-item reset"><strong>Reset Selection</strong></span></li> -->
+                            <li id="0"><span class="dropdown-item reset"><strong>Reset Selection</strong></span></li>
                         </ul>
                     </div>
                 </div>
@@ -65,7 +54,18 @@
                             Choose an Industry
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="industryDropdown" id="industryDropdownValues">
-                            <!-- <li id="0"><span class="dropdown-item reset"><strong>Reset Selection</strong></span></li> -->
+                            <li id="0"><span class="dropdown-item reset"><strong>Reset Selection</strong></span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown-container contract">
+                    <div class="dropdown">
+                        <button class="button button-dropdown dropdown-toggle" type="button" id="termDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Choose a Term
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="termDropdown" id="termDropdownValues">
+                            <li id="0"><span class="dropdown-item reset"><strong>Reset Selection</strong></span></li>
                         </ul>
                     </div>
                 </div>
@@ -74,7 +74,6 @@
                     <button class="button button-search" id="searchBtn">Search</button>
                 </div>
             </div>
-            <div id="pillsContainer" class="pills-container container"></div>
         </section>
         <div class="loader-container" id="loaderContainer">
             <div class="spinner"></div>
@@ -89,15 +88,13 @@
         </section>
         <section class="no-jobs" id="noJobs">
             <div class="container no-jobs-container">
-                <img src="/img/no_jobs.svg" alt="No jobs Found" class="no-jobs-img">
+                <img src="/img/no_jobs.png" alt="No jobs Found" class="no-jobs-img">
                 <div class="no-jobs-text">
                     <p class="">There are no job listings matching your current filters.</p>
                     <p class="">Please consider adjusting your search criteria to find relevant job opportunities.</p>
                 </div>
             </div>
         </section>
-
-        <button id="scrollToTop" class="scroll-to-top"><i class="ph ph-arrow-up"></i></button>
     </main>
 
 
