@@ -122,6 +122,10 @@ const JobInformationManager = (() => {
             card.target = "_blank";
             card.id = job.job_id;
             card.classList.add("job-card");
+            let departmentName = job.custom_fields.find((field) => field.field_id === "2").value;
+            let jobType = job.custom_fields.find((field) => field.field_id === "4").value
+            let datePosted = job.custom_fields.find((field) => field.field_id === "12").value
+            let emptyPlaceholder = "Not Available";
             imageSrc = "https://tandemsearch.com/wp-content/uploads/2023/10/owner_placeholder-scaled.jpg";
             if (Object.keys(GlobalDataManager.userInfo).length > 0) {
                 url = GlobalDataManager.userInfo[job.owner];
@@ -133,33 +137,21 @@ const JobInformationManager = (() => {
             <div class="job-details-wrapper">
                 <div class="job-name-dept">
                     <h4 class="job-name">${job.name}</h4>
-                    <p class="department-name">${
-                        job.custom_fields.find(
-                            (field) => field.field_id === "2"
-                        ).value
-                    }</p>
+                    <p class="department-name">${departmentName != "None" ? departmentName : emptyPlaceholder}</p>
                 </div>
                 <div class="country-info">
                     <i class="ph ph-map-pin"></i>
-                    <p class="country-name mb-0">${job.city} - ${
-                job.country
+                    <p class="country-name mb-0">${(job.city && job.city != "None") ? job.city : "NA"} - ${
+                        (job.country && job.country != "None") ? job.country : "NA"
             }</p>
                 </div>
                 <div class="job-type-info">
                     <i class="ph ph-identification-card"></i>
-                    <p class="job-type mb-0">${
-                        job.custom_fields.find(
-                            (field) => field.field_id === "4"
-                        ).value
-                    }</p>
+                    <p class="job-type mb-0">${(jobType && jobType != "None") ? jobType : emptyPlaceholder}</p>
                 </div>
                 <div class="date-posted-info">
                     <i class="ph ph-calendar"></i>
-                    <p class="date-posted mb-0">${convertDate(
-                        job.custom_fields.find(
-                            (field) => field.field_id === "12"
-                        ).value
-                    )}</p>
+                    <p class="date-posted mb-0">${(datePosted && datePosted != "None") ? convertDate(datePosted) : emptyPlaceholder}</p>
                 </div>
             </div>
             <div class="job-owner-info">
