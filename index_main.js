@@ -117,12 +117,12 @@ const JobInformationManager = (() => {
         jobsData.data.forEach((job) => {
             let li = document.createElement("li");
             let card = document.createElement("a");
-            card.setAttribute("href", "/apply.html?id=" + job.job_id);
-            card.href = "/apply.html?id=" + job.job_id;
+            card.setAttribute("href", "/job-description?id=" + job.job_id);
+            card.href = "/job-description?id=" + job.job_id;
             card.target = "_blank";
             card.id = job.job_id;
             card.classList.add("job-card");
-            imageSrc = "/img/owner_placeholder.jpg";
+            imageSrc = "https://tandemsearch.com/wp-content/uploads/2023/10/owner_placeholder-scaled.jpg";
             if (Object.keys(GlobalDataManager.userInfo).length > 0) {
                 url = GlobalDataManager.userInfo[job.owner];
                 if (url != null) {
@@ -130,44 +130,44 @@ const JobInformationManager = (() => {
                 }
             }
             card.innerHTML = `
-                <div class="job-details-wrapper">
-                    <div class="job-name-dept">
-                        <h4 class="job-name">${job.name}</h4>
-                        <p class="department-name">${
-                            job.custom_fields.find(
-                                (field) => field.field_id === "2"
-                            ).value
-                        }</p>
-                    </div>
-                    <div class="country-info">
-                        <i class="ph ph-map-pin"></i>
-                        <p class="country-name mb-0">${job.city} - ${
+            <div class="job-details-wrapper">
+                <div class="job-name-dept">
+                    <h4 class="job-name">${job.name}</h4>
+                    <p class="department-name">${
+                        job.custom_fields.find(
+                            (field) => field.field_id === "2"
+                        ).value
+                    }</p>
+                </div>
+                <div class="country-info">
+                    <i class="ph ph-map-pin"></i>
+                    <p class="country-name mb-0">${job.city} - ${
                 job.country
             }</p>
-                    </div>
-                    <div class="job-type-info">
-                        <i class="ph ph-identification-card"></i>
-                        <p class="job-type mb-0">${
-                            job.custom_fields.find(
-                                (field) => field.field_id === "4"
-                            ).value
-                        }</p>
-                    </div>
-                    <div class="date-posted-info">
-                        <i class="ph ph-calendar"></i>
-                        <p class="date-posted mb-0">${convertDate(
-                            job.custom_fields.find(
-                                (field) => field.field_id === "12"
-                            ).value
-                        )}</p>
-                    </div>
                 </div>
-                <div class="job-owner-info">
-                    <img class="owner-image" src="${imageSrc}" alt="job owner" id=${
+                <div class="job-type-info">
+                    <i class="ph ph-identification-card"></i>
+                    <p class="job-type mb-0">${
+                        job.custom_fields.find(
+                            (field) => field.field_id === "4"
+                        ).value
+                    }</p>
+                </div>
+                <div class="date-posted-info">
+                    <i class="ph ph-calendar"></i>
+                    <p class="date-posted mb-0">${convertDate(
+                        job.custom_fields.find(
+                            (field) => field.field_id === "12"
+                        ).value
+                    )}</p>
+                </div>
+            </div>
+            <div class="job-owner-info">
+                <img class="owner-image" src="${imageSrc}" alt="job owner" id=${
                 job.owner
             }>
-                </div>
-            `;
+            </div>
+        `;
             li.appendChild(card);
             cardContainer.appendChild(li);
         });
@@ -182,8 +182,8 @@ const JobInformationManager = (() => {
             viewMore.classList.add("text-center");
             viewMore.id = "viewMore";
             viewMore.innerHTML = `
-                <button class="button button-view-more" id="viewMoreBtn">View more Jobs</button>
-            `;
+            <button class="button-rcrm button-view-more" id="viewMoreBtn">View more Jobs</button>
+        `;
             cardContainer.appendChild(viewMore);
             GlobalDataManager.nextPageUrl = jobsData.next_page_url;
             document
@@ -285,7 +285,8 @@ const UserInformationManager = (() => {
 const DropdownsManager = (() => {
     let resetButton = document.getElementById("resetBtn");
     let countryDropdownButton = document.getElementById("countryDropdown");
-    let industryDropdownButton = document.getElementById("industryDropdown");
+    let industryDropdownButton =
+        document.getElementById("industryDropdown");
     let cityDropdownButton = document.getElementById("cityDropdown");
     let searchInput = document.getElementById("searchInput");
     let citySelected = 0;
@@ -344,13 +345,13 @@ const DropdownsManager = (() => {
                 let listElement = document.createElement("li");
                 inputId = "country" + generateIds(item);
                 listElement.innerHTML = `
-                    <div class="dropdown-item">
-                        <input class="checkbox" type="checkbox" value="${item}" id="${inputId}" onchange="DropdownsManager.handleCheckboxChange(this, 'country', '${item}')">
-                        <label class="form-check-label" for="${inputId}">
-                            ${item}
-                        </label>
-                    </div>
-                `;
+                <div class="dropdown-item">
+                    <input class="checkbox" type="checkbox" value="${item}" id="${inputId}" onchange="DropdownsManager.handleCheckboxChange(this, 'country', '${item}')">
+                    <label class="form-check-label" for="${inputId}">
+                        ${item}
+                    </label>
+                </div>
+            `;
                 document
                     .getElementById("countryDropdownValues")
                     .appendChild(listElement);
@@ -362,13 +363,13 @@ const DropdownsManager = (() => {
                 let listElement = document.createElement("li");
                 inputId = "city" + generateIds(item);
                 listElement.innerHTML = `
-                    <div class="dropdown-item">
-                        <input class="checkbox" type="checkbox" value="${item}" id="${inputId}" onchange="DropdownsManager.handleCheckboxChange(this, 'city', '${item}')">
-                        <label class="form-check-label" for="${inputId}">
-                            ${item}
-                        </label>
-                    </div>
-                `;
+                <div class="dropdown-item">
+                    <input class="checkbox" type="checkbox" value="${item}" id="${inputId}" onchange="DropdownsManager.handleCheckboxChange(this, 'city', '${item}')">
+                    <label class="form-check-label" for="${inputId}">
+                        ${item}
+                    </label>
+                </div>
+            `;
                 document
                     .getElementById("cityDropdownValues")
                     .appendChild(listElement);
@@ -378,15 +379,15 @@ const DropdownsManager = (() => {
         industryArray.forEach(function (item) {
             if (item != "None" && item != "") {
                 let listElement = document.createElement("li");
-                inputId = "industry" + generateIds(item);
+                inputId = "2" + generateIds(item);
                 listElement.innerHTML = `
-                <div class="dropdown-item">
-                <input class="checkbox" type="checkbox" value="${item}" id="${inputId}" onchange="DropdownsManager.handleCheckboxChange(this, 2, '${item}')">
-                <label class="form-check-label" for="${inputId}">
-                    ${item}
-                </label>
-            </div>
-                `;
+            <div class="dropdown-item">
+            <input class="checkbox" type="checkbox" value="${item}" id="${inputId}" onchange="DropdownsManager.handleCheckboxChange(this, 2, '${item}')">
+            <label class="form-check-label" for="${inputId}">
+                ${item}
+            </label>
+        </div>
+            `;
                 document
                     .getElementById("industryDropdownValues")
                     .appendChild(listElement);
@@ -402,7 +403,6 @@ const DropdownsManager = (() => {
 
         for (const key in GlobalDataManager.filterObject) {
             if (GlobalDataManager.filterObject.hasOwnProperty(key)) {
-                ;
                 let values = [];
 
                 if (key == "search_keyword") {
@@ -416,19 +416,22 @@ const DropdownsManager = (() => {
                         const pill = document.createElement("span");
                         pill.classList.add("pill");
                         pill.innerText = value;
-                        const closeButton = document.createElement("button");
+                        const closeButton =
+                            document.createElement("button");
                         closeButton.innerHTML = "&times;"; // Times symbol for cross-out
                         closeButton.addEventListener("click", function () {
                             removeFromFilterObject(key, value);
                             var addSearchKeyword = true;
-                            debugger
 
                             if (key != "search_keyword") {
                                 const checkboxes =
-                                    document.getElementsByClassName("checkbox");
+                                    document.getElementsByClassName(
+                                        "checkbox"
+                                    );
                                 for (const checkbox of checkboxes) {
-                                    if (checkbox.id === generateIds(value)) {
-                                        debugger
+                                    if (
+                                        checkbox.id === generateIds(value)
+                                    ) {
                                         checkbox.checked = false;
                                         handleCheckboxChange(checkbox, key, value);
                                         break;
@@ -467,7 +470,6 @@ const DropdownsManager = (() => {
         } else {
             GlobalDataManager.filterObject[key] = value;
         }
-        console.log(GlobalDataManager.filterObject);
     };
 
     const removeFromFilterObject = (key, value) => {
@@ -482,7 +484,6 @@ const DropdownsManager = (() => {
                 delete GlobalDataManager.filterObject[key];
             }
         }
-        console.log(GlobalDataManager.filterObject);
     };
 
     const resetFilters = () => {
@@ -492,8 +493,12 @@ const DropdownsManager = (() => {
         industryDropdownButton.innerHTML = "Choose an Industry";
         industryDropdownButton.classList.remove("selected");
 
-        cityDropdownButton.innerHTML = "Choose a Term";
+        cityDropdownButton.innerHTML = "Choose a City";
         cityDropdownButton.classList.remove("selected");
+
+        citySelected = 0;
+        countrySelected = 0;
+        industrySelected = 0;
 
         const checkboxes = document.querySelectorAll(".checkbox");
 
@@ -542,7 +547,8 @@ const DropdownsManager = (() => {
             let spanElement = "";
             if (event.target.tagName === "LI") {
                 if (event.target == 0) isReset = true;
-                spanElement = event.target.querySelector("span.dropdown-item");
+                spanElement =
+                    event.target.querySelector("span.dropdown-item");
             } else {
                 if (event.target.parentNode.id == 0) isReset = true;
                 spanElement = event.target;
@@ -578,14 +584,11 @@ const DropdownsManager = (() => {
 
                 buttonElement.classList.remove("selected");
                 isReset = false;
-
-                console.log(GlobalDataManager.filterObject);
             }
         });
     };
 
     const handleCheckboxChange = (checkbox, key, value) => {
-        debugger
         if (checkbox.checked) {
             addToFilterObject(key, value);
 
@@ -635,7 +638,6 @@ const DropdownsManager = (() => {
         }
 
         if (Object.keys(GlobalDataManager.filterObject).length < 1) {
-            ;
             resetFilters();
         }
 
@@ -646,12 +648,14 @@ const DropdownsManager = (() => {
     const fixDropdown = () => {
         const dropdownContainers = document.querySelectorAll(".dropdown");
         dropdownContainers.forEach(function (container) {
-            const dropdownValues = container.querySelector(".dropdown-menu");
+            const dropdownValues =
+                container.querySelector(".dropdown-menu");
             dropdownValues.addEventListener("click", function (event) {
                 event.stopPropagation();
             });
 
-            const labels = dropdownValues.querySelectorAll(".form-check-label");
+            const labels =
+                dropdownValues.querySelectorAll(".form-check-label");
             labels.forEach(function (label) {
                 label.addEventListener("click", function (event) {
                     event.stopPropagation();
@@ -661,8 +665,10 @@ const DropdownsManager = (() => {
     };
 
     const adjustDropdownButtonWidth = (buttonId, dropdownId) => {
-        const dropdownWidth = document.getElementById(dropdownId).offsetWidth;
-        document.getElementById(buttonId).style.width = dropdownWidth + "px";
+        const dropdownWidth =
+            document.getElementById(dropdownId).offsetWidth;
+        document.getElementById(buttonId).style.width =
+            dropdownWidth + "px";
     };
 
     const adjustDropdowns = () => {
@@ -701,14 +707,14 @@ const DropdownsManager = (() => {
         button.style.width = "";
     };
 
-    const generateIds = (key, inputString) => {
+    const generateIds = (inputString) => {
         var words = inputString.split(" ");
         var convertedString = words
             .map(function (word) {
                 return word.charAt(0).toUpperCase() + word.slice(1);
             })
             .join("");
-        return key + convertedString;
+        return convertedString;
     };
 
     return {
@@ -768,7 +774,8 @@ const FilterManager = (() => {
                     GlobalDataManager.filterObject[key]
                 }"},`;
             } else {
-                param += key + "=" + GlobalDataManager.filterObject[key] + "&";
+                param +=
+                    key + "=" + GlobalDataManager.filterObject[key] + "&";
             }
         }
         if (customFields != "") {
@@ -835,7 +842,10 @@ const ScrollToTopManager = (() => {
             threshold: 0.1,
         };
 
-        const observer = new IntersectionObserver(function (entries, observer) {
+        const observer = new IntersectionObserver(function (
+            entries,
+            observer
+        ) {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     scrollToTopButton.style.display = "none";
@@ -843,7 +853,8 @@ const ScrollToTopManager = (() => {
                     scrollToTopButton.style.display = "block";
                 }
             });
-        }, options);
+        },
+        options);
 
         observer.observe(section);
     };

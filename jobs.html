@@ -1169,7 +1169,7 @@
             industryArray.forEach(function (item) {
                 if (item != "None" && item != "") {
                     let listElement = document.createElement("li");
-                    inputId = "industry" + generateIds(item);
+                    inputId = "2" + generateIds(item);
                     listElement.innerHTML = `
                 <div class="dropdown-item">
                 <input class="checkbox" type="checkbox" value="${item}" id="${inputId}" onchange="DropdownsManager.handleCheckboxChange(this, 2, '${item}')">
@@ -1220,9 +1220,10 @@
                                         );
                                     for (const checkbox of checkboxes) {
                                         if (
-                                            checkbox.id === generateIds(value)
+                                            checkbox.id === key + generateIds(value)
                                         ) {
                                             checkbox.checked = false;
+                                            handleCheckboxChange(checkbox, key, value);
                                             break;
                                         }
                                     }
@@ -1284,6 +1285,10 @@
 
             cityDropdownButton.innerHTML = "Choose a City";
             cityDropdownButton.classList.remove("selected");
+
+            citySelected = 0;
+            countrySelected = 0;
+            industrySelected = 0;
 
             const checkboxes = document.querySelectorAll(".checkbox");
 

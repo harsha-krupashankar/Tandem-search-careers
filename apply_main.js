@@ -276,14 +276,14 @@ const CandidateApplyManager = (() => {
     const applyToJob = async (candidateData) => {
         let applyUrl =
             GlobalDataManager.solutionsApiBaseUrl + "candidates/apply-job/";
-            // applyUrl += GlobalDataManager.accountId;
-        applyUrl += '053116fb-7060-4941-9557-9e3dff56fa85';
+            applyUrl += GlobalDataManager.accountId;
+        // applyUrl += '053116fb-7060-4941-9557-9e3dff56fa85';
         
-        // applyUrl += "?job_slug=" + GlobalDataManager.job.job_slug;
-        applyUrl += "?job_slug=" + "16945041421820024193DgT";
+        applyUrl += "?job_slug=" + GlobalDataManager.jobData.job_slug;
+        // applyUrl += "?job_slug=" + "16945041421820024193DgT";
         applyUrl += "&allow_duplicates=False";
-        // applyUrl += "&updated_by=" + job.owner;
-        applyUrl += "&updated_by=" + "24193";
+        applyUrl += "&updated_by=" + GlobalDataManager.jobData.owner;
+        // applyUrl += "&updated_by=" + "24193";
         const objTemp = {
             first_name: candidateData.firstName,
             last_name: candidateData.lastName,
@@ -296,7 +296,7 @@ const CandidateApplyManager = (() => {
         };
 
         if ("emailConsent" in  candidateData) {
-            objTemp["custom_fields[0][field_id]"] = 29;
+            objTemp["custom_fields[0][field_id]"] = 35;
             objTemp["custom_fields[0][value]"] = candidateData.emailConsent;
         }
 
