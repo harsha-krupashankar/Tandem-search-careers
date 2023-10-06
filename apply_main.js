@@ -361,14 +361,26 @@ const JobInformationManager = (() => {
         GlobalDataManager.jobData = await fetchJobInformation();
         jobName.innerText = GlobalDataManager.jobData.name;
         popupJobname.innerText = GlobalDataManager.jobData.name;
-        countryName.innerText = GlobalDataManager.jobData.country;
+        // jobDescription.innerHTML = GlobalDataManager.jobData.job_description_text ? GlobalDataManager.jobData.job_description_text: "";
+        let country = GlobalDataManager.jobData.country;
+        let city = GlobalDataManager.jobData.city;
+        let emptyPlaceholder = "Not Available";
+        if ((country && country != "None") && (city && city != "None")) {
+            countryName.innerText = `${city} - ${country}`;
+        } else if (country && country != "None") {
+            countryName.innerText = country;
+        } else if (city && city != "None") {
+            countryName.innerText = city;
+        } else {
+            countryName.innerText = emptyPlaceholder;
+        }
         GlobalDataManager.jobData.custom_fields.forEach((item) => {
             if (item.field_id == "2") {
-                deptName.innerText = item.value;
+                deptName.innerText = (item.value && item.value != "None") ? item.value: emptyPlaceholder;
             } else if (item.field_id == "4") {
-                jobType.innerText = item.value;
+                jobType.innerText = (item.value && item.value != "None") ? item.value: emptyPlaceholder;
             } else if (item.field_id == "12") {
-                jobPostedDate.innerText = item.value;
+                jobPostedDate.innerText = (item.value && item.value != "None") ? item.value: emptyPlaceholder;
             }
         });
         LoaderManager.hide();

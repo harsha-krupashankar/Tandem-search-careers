@@ -126,6 +126,18 @@ const JobInformationManager = (() => {
             let jobType = job.custom_fields.find((field) => field.field_id === "4").value
             let datePosted = job.custom_fields.find((field) => field.field_id === "12").value
             let emptyPlaceholder = "Not Available";
+            let country = job.country;
+            let city = job.city;
+            let countryValue = ""
+            if ((country && country != "None") && (city && city != "None")) {
+                countryValue = `${city} - ${country}`;
+            } else if (country && country != "None") {
+                countryValue = country;
+            } else if (city && city != "None") {
+                countryValue = city;
+            } else {
+                countryValue = emptyPlaceholder;
+            }
             imageSrc = "https://tandemsearch.com/wp-content/uploads/2023/10/owner_placeholder-scaled.jpg";
             if (Object.keys(GlobalDataManager.userInfo).length > 0) {
                 url = GlobalDataManager.userInfo[job.owner];
@@ -141,9 +153,7 @@ const JobInformationManager = (() => {
                 </div>
                 <div class="country-info">
                     <i class="ph ph-map-pin"></i>
-                    <p class="country-name mb-0">${(job.city && job.city != "None") ? job.city : "NA"} - ${
-                        (job.country && job.country != "None") ? job.country : "NA"
-            }</p>
+                    <p class="country-name mb-0">${countryValue}</p>
                 </div>
                 <div class="job-type-info">
                     <i class="ph ph-identification-card"></i>
@@ -513,7 +523,7 @@ const DropdownsManager = (() => {
         }
 
         hideResetButton();
-        LoadManager.hideSectionLoader();
+        // LoadManager.hideSectionLoader();
     };
 
     const checkPillsContainerChildren = () => {
@@ -803,7 +813,7 @@ const FilterManager = (() => {
             if (data.count > 0) {
                 cardContainer.replaceChildren();
                 JobInformationManager.populateJobCards(data);
-                LoadManager.hideSectionLoader();
+                // LoadManager.hideSectionLoader();
                 AnimationManager.triggerCardAnimation();
             } else {
                 NoJobsManager.showNoJobs();
@@ -868,3 +878,4 @@ DropdownsManager.initialize();
 LoadManager.hide();
 FilterManager.initialize();
 ScrollToTopManager.initialize();
+LoadManager.showSectionLoader()

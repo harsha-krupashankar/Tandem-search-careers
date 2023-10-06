@@ -924,6 +924,18 @@
                     (field) => field.field_id === "12"
                 ).value;
                 let emptyPlaceholder = "Not Available";
+                let country = job.country;
+                let city = job.city;
+                let countryValue = ""
+                if ((country && country != "None") && (city && city != "None")) {
+                    countryValue = `${city} - ${country}`;
+                } else if (country && country != "None") {
+                    countryValue = country;
+                } else if (city && city != "None") {
+                    countryValue = city;
+                } else {
+                    countryValue = emptyPlaceholder;
+                }
                 imageSrc =
                     "https://tandemsearch.com/wp-content/uploads/2023/10/owner_placeholder-scaled.jpg";
                 if (Object.keys(GlobalDataManager.userInfo).length > 0) {
@@ -944,11 +956,7 @@
                         </div>
                         <div class="country-info">
                             <i class="ph ph-map-pin"></i>
-                            <p class="country-name mb-0">${
-                                job.city && job.city != "None" ? job.city : "NA"
-                            } - ${
-                            job.country && job.country != "None" ? job.country : "NA"
-                        }</p>
+                            <p class="country-name mb-0">${countryValue}</p>
                         </div>
                         <div class="job-type-info">
                             <i class="ph ph-identification-card"></i>

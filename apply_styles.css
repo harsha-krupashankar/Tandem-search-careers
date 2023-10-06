@@ -208,6 +208,7 @@ body {
 main {
     display: flex;
     gap: 3rem;
+    justify-content: space-between;
 }
 
 .header {
@@ -334,9 +335,9 @@ main {
     transition: opacity 1s ease;
 }
 
-.job-owner-info {
+/* .job-owner-info {
     flex: 70%;
-}
+} */
 
 .owner-info-card {
     background-color: var(--color-cream);
